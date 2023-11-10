@@ -1,0 +1,10 @@
+.imgCard {
+    overflow: hidden;
+    padding: 2.4rem 0;
+}
+
+.imgCard>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

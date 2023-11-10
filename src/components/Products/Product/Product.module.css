@@ -1,0 +1,36 @@
+.card{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.4rem;
+}
+.img{
+    width: 17.6rem;
+    height: 11.2rem;
+    box-shadow: 0 3px #9d174d;
+    margin-bottom: 1.5rem;
+}
+.img > img{
+    width: 100%;
+    height: 100%;
+}
+h2{
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.bottom{
+    border: 1px solid green;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h3  > span{
+    color: red;
+}
+h3{
+    font-size: 1.8rem;
+    font-weight: 500;
+}

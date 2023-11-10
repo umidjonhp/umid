@@ -1,0 +1,25 @@
+nav {
+    background-color: #252B48;
+    position: fixed;
+    width: 100%;
+}
+
+.nav {
+    padding: 1.6rem 2.8rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.nav>span {
+    position: absolute;
+    right: 1.6rem;
+    top: 5.5rem;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.btn {
+    cursor: pointer;
+}
