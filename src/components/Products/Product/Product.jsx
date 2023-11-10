@@ -7,7 +7,7 @@ import GadjetsContext from "../../../context/gadjets-context";
 function Product({ gadget }) {
   const ctx = useContext(GadjetsContext);
   const onAddButtonHandler = () => ctx.onAddGadgets(gadget);
-  
+
   return (
     <div className={styles.card}>
       <div className={styles.img}>
@@ -16,7 +16,7 @@ function Product({ gadget }) {
       <h2>{gadget.title}</h2>
       <div className={styles.bottom}>
         <h3><span>$</span>{gadget.price}</h3>
-        <BasketIcon clickHandler={onAddButtonHandler}/>
+        <BasketIcon clickHandler={onAddButtonHandler} />
       </div>
     </div>
   )

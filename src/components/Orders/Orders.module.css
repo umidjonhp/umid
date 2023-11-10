@@ -11,14 +11,16 @@
     margin-bottom: 2rem;
 }
 
-.pp, .info {
+.pp,
+.info {
     font-size: 3.3rem;
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
 }
-.info{
+
+.info {
     margin-top: 20rem;
     text-align: center;
 }

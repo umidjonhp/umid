@@ -4,7 +4,6 @@ import { DeleteIcon } from '../../Icon/DeleteIcon/DeleteIcon'
 import GadjetsContext from "../../../context/gadjets-context";
 
 function OrderGadget({ gadget }) {
-    console.log(gadget);
     const ctx = useContext(GadjetsContext);
     const addGadjet = (id) => ctx.onAddGadget(id);
     const GetGadjet = (id) => ctx.onGetGadget(id);
@@ -16,10 +15,10 @@ function OrderGadget({ gadget }) {
                     <img src={gadget.thumbnail} alt="" />
                 </div>
                 <div className={styles.counter}>
-                    {gadget.count !== 1 && <button onClick={() =>GetGadjet(gadget.id)} >-</button>}
+                    {gadget.count !== 1 && <button onClick={() => GetGadjet(gadget.id)} >-</button>}
                     {gadget.count === 1 && <button disabled >-</button>}
                     <span>{gadget.count}</span>
-                    <button onClick={() =>addGadjet(gadget.id)}>+</button>
+                    <button onClick={() => addGadjet(gadget.id)}>+</button>
                 </div>
             </div>
             <div className={styles.title}>
@@ -28,7 +27,7 @@ function OrderGadget({ gadget }) {
             </div>
             <div className={styles.price}>
                 <h3><span>$</span>{gadget.newPrice}</h3>
-                <DeleteIcon  clickHandler={() => deleteGadjet(gadget.id)}/>
+                <DeleteIcon clickHandler={() => deleteGadjet(gadget.id)} />
             </div>
         </div>
     )

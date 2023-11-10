@@ -30,7 +30,6 @@ const reducerGadjets = (state, action) => {
       };
     }
     case "ORDER": {
-      console.log(state.orderSection);
       return {
         ...state,
         orderSection: !state.orderSection,

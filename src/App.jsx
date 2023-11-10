@@ -13,9 +13,9 @@ function App() {
     <>
       <Navbar />
       <div className="container">
-        {ctx.orderSection && <Orders/>}
-        {!ctx.orderSection && <Header /> }
-        {!ctx.orderSection && <Products /> }
+        {ctx.orderSection && <Orders />}
+        {!ctx.orderSection && <Header />}
+        {!ctx.orderSection && <Products />}
       </div>
 
     </>
