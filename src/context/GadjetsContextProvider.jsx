@@ -1,6 +1,6 @@
 import React from 'react'
-import  GadjetsContext from "./gadjets-context"
-import gadjets from '../data/data'
+import GadjetsContext from "./gadjets-context"
+
 
 // const initialGadjetsValue = {
 //   items: gadjets,
@@ -9,17 +9,17 @@ import gadjets from '../data/data'
 //   console.log("sd");
 // }
 
-const GadjetsContextProvider = ({ children }) =>{
+const GadjetsContextProvider = ({ children }) => {
 
-    const contextData = {
-        lll: ""
-      };
-    
-    return (
-        <GadjetsContext.Provider value={contextData}>
-          {children}
-        </GadjetsContext.Provider>
-      );
+  const contextData = {
+    lll: ""
+  };
+
+  return (
+    <GadjetsContext.Provider value={contextData}>
+      {children}
+    </GadjetsContext.Provider>
+  );
 }
 
 export default GadjetsContextProvider

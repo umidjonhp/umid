@@ -11,6 +11,7 @@ export const BasketIcon = () => {
       width="3.52rem"
       stroke="currentColor"
       className="w-6 h-6"
+      cursor="pointer"
     >
       <path
         strokeLinecap="round"
