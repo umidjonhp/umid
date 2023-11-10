@@ -1,31 +1,37 @@
-import React from 'react'
+import { useContext } from "react";
 import styles from "./OrderGadget.module.css"
-import img from "../../../assets/heroImg.png"
 import { DeleteIcon } from '../../Icon/DeleteIcon/DeleteIcon'
+import GadjetsContext from "../../../context/gadjets-context";
 
-function OrderGadget() {
-  return (
-    <div className={styles.gadgetCard}>
-        <div className={styles.box}>
-            <div className={styles.phoneImg}>
-                <img src={img} alt="" />
+function OrderGadget({ gadget }) {
+    console.log(gadget);
+    const ctx = useContext(GadjetsContext);
+    const addGadjet = (id) => ctx.onAddGadget(id);
+    const GetGadjet = (id) => ctx.onGetGadget(id);
+    const deleteGadjet = (id) => ctx.onDeleteGadget(id);
+    return (
+        <div className={styles.gadgetCard}>
+            <div className={styles.box}>
+                <div className={styles.phoneImg}>
+                    <img src={gadget.thumbnail} alt="" />
+                </div>
+                <div className={styles.counter}>
+                    {gadget.count !== 1 && <button onClick={() =>GetGadjet(gadget.id)} >-</button>}
+                    {gadget.count === 1 && <button disabled >-</button>}
+                    <span>{gadget.count}</span>
+                    <button onClick={() =>addGadjet(gadget.id)}>+</button>
+                </div>
             </div>
-            <div className={styles.counter}>
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
+            <div className={styles.title}>
+                <span>{gadget.brand}</span>
+                <span>{gadget.title}</span>
+            </div>
+            <div className={styles.price}>
+                <h3><span>$</span>{gadget.newPrice}</h3>
+                <DeleteIcon  clickHandler={() => deleteGadjet(gadget.id)}/>
             </div>
         </div>
-        <div className={styles.title}>
-            <span>OPPO</span>
-            <span>OPPOF19</span>
-        </div>
-        <div className={styles.price}>
-            <h3><span>$</span>499</h3>
-            <DeleteIcon />
-        </div>
-    </div>
-  )
+    )
 }
 
 export default OrderGadget

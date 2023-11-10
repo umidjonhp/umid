@@ -2,6 +2,7 @@ nav {
     background-color: #252B48;
     position: fixed;
     width: 100%;
+    z-index: 999;
 }
 
 .nav {

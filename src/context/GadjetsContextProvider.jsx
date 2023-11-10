@@ -15,14 +15,18 @@ const reducerGadjets = (state, action) => {
       const findItem = newItems.find((item) => item.id === gadget.id);
       if (findItem) {
         findItem.count = findItem.count + 1;
-        findItem.price *= findItem.count;
+        findItem.newPrice = findItem.price * findItem.count;
       } else {
-        newItems.unshift({ ...gadget, count: 1 });
+        newItems.push({ ...gadget, count: 1, newPrice: gadget.price });
       }
-      console.log(newItems);
+      const totalPrice = newItems.reduce(
+        (acc, item) => acc + item.newPrice,
+        0
+      );
       return {
         ...state,
         items: newItems,
+        totalPrice,
       };
     }
     case "ORDER": {
@@ -32,7 +36,48 @@ const reducerGadjets = (state, action) => {
         orderSection: !state.orderSection,
       };
     }
-
+    case "ADD_GADGET": {
+      const newItems = [...state.items]
+      const findItem = newItems.find((item) => item.id === action.payload);
+      findItem.count = findItem.count + 1;
+      findItem.newPrice = findItem.price * findItem.count;
+      const totalPrice = newItems.reduce(
+        (acc, item) => acc + item.newPrice,
+        0
+      );
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: totalPrice,
+      }
+    }
+    case "GET_GADGET": {
+      const newItems = [...state.items];
+      const findItem = newItems.find((item) => item.id === action.payload);
+      findItem.count = findItem.count - 1;
+      findItem.newPrice = findItem.price * findItem.count;
+      const totalPrice = newItems.reduce(
+        (acc, item) => acc + item.newPrice,
+        0
+      );
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: totalPrice,
+      }
+    }
+    case "DELETE_GADGET": {
+      const newItems = [...state.items].filter((item) => item.id !== action.payload)
+      const totalPrice = newItems.reduce(
+        (acc, item) => acc + item.newPrice,
+        0
+      );
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: totalPrice,
+      }
+    }
   }
 }
 
@@ -40,13 +85,18 @@ const GadjetsContextProvider = ({ children }) => {
   const [gadgets, dispatch] = useReducer(reducerGadjets, initialGadjetsValue);
 
   const onAddGadgets = (gadget) => dispatch({ type: "ADD_GADGETS", payload: { ...gadget } })
-
   const toggleOrderSection = () => dispatch({ type: "ORDER" });
+  const onAddGadget = (id) => dispatch({ type: "ADD_GADGET", payload: id })
+  const onGetGadget = (id) => dispatch({ type: "GET_GADGET", payload: id })
+  const onDeleteGadget = (id) => dispatch({ type: "DELETE_GADGET", payload: id })
 
   const contextData = {
     ...gadgets,
     onAddGadgets,
     toggleOrderSection,
+    onAddGadget,
+    onGetGadget,
+    onDeleteGadget,
   };
 
   return (
