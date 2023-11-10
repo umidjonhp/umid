@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BasketIcon = () => {
+export const BasketIcon = ({clickHandler}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,6 +12,7 @@ export const BasketIcon = () => {
       stroke="currentColor"
       className="w-6 h-6"
       cursor="pointer"
+      onClick={clickHandler || (() => {})}
     >
       <path
         strokeLinecap="round"

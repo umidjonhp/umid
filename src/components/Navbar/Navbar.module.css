@@ -5,7 +5,7 @@ nav {
 }
 
 .nav {
-    padding: 1.6rem 2.8rem 3rem;
+    padding: 1.6rem 4rem 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,7 +14,7 @@ nav {
 
 .nav>span {
     position: absolute;
-    right: 1.6rem;
+    right: 2.5rem;
     top: 5.5rem;
     font-size: 1.8rem;
     color: #fff;

@@ -1,0 +1,60 @@
+.gadgetCard{
+    box-shadow: 0 0 2px #252b48;
+    border-radius: 10px;
+    margin-bottom: 1.12rem;
+    padding: 1.58rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+}
+.counter{
+    display: flex;
+}
+.counter > button , .counter > span{
+    font-size: 1.8rem;
+    padding: 0.5rem 2rem;
+    color: #9d174d;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dcd9d9;
+    background-color: #faf9f9;
+    cursor: pointer;
+}
+.counter > span{
+    padding: 0 2.2rem;
+    cursor:text;
+}
+.phoneImg{
+    width: 16rem;
+    height: 10.4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 3px #9d174d;
+    margin-bottom: 3rem;
+}
+.phoneImg > img{
+    width: 100%;
+    height: 100%;
+}
+.title{
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    padding: 4rem;
+}
+.price{
+    position: absolute;
+    bottom: 1.28rem;
+    right: 1.28rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+}

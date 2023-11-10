@@ -1,10 +1,14 @@
 .imgCard {
     overflow: hidden;
     padding: 2.4rem 0;
+    padding-top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .imgCard>img {
-    width: 100%;
-    height: 100%;
+    width: 72%;
+    height: 72%;
     object-fit: cover;
 }
