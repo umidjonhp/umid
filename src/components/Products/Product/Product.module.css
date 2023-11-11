@@ -12,6 +12,11 @@
     width: 17.6rem;
     height: 11.2rem;
     box-shadow: 0 3px #9d174d;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.img:hover{
+    transform: scale(1.15);
 }
 
 .img>img {

@@ -5,10 +5,46 @@ h1 {
     font-weight: 500;
     font-size: 4rem;
 }
+.products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .gadgets {
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     justify-content: center;
+    padding: 0 1rem;
+}
+@media only screen and (max-width:1200px){
+    .gadgets{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media only screen and (max-width:985px){
+    .gadgets{
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+}
+
+@media only screen and (max-width:600px){
+    .gadgets{
+        grid-template-columns: 1fr;
+        width: 60%;
+    }
+}
+@media only screen and (max-width:550px){
+    .gadgets{
+        width: 70%;
+    }
+}
+@media only screen and (max-width:400px){
+    .gadgets{
+        width: 90%;
+    }
 }

@@ -12,11 +12,25 @@ html {
   font-size: 62.5%;
   font-family: 'Nova Square', sans-serif;
 }
-#root{
+
+#root {
   position: relative;
 }
 
 .container {
-  max-width: 113rem;
+  max-width: 125rem;
   margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.6rem;
+  background: linear-gradient(transparent, #252B48);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #131616);
 }
