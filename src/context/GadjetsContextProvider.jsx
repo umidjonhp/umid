@@ -1,5 +1,7 @@
 import React, { useReducer, useState } from "react";
 import GadjetsContext from "./gadjets-context"
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 
 const initialGadjetsValue = {
@@ -77,6 +79,34 @@ const reducerGadjets = (state, action) => {
         totalPrice: totalPrice,
       }
     }
+    case "ADD_TOAST": {
+      const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 1000));
+      toast.promise(
+        resolveAfter3Sec,
+        {
+          pending: 'Promise is pending',
+          success: 'Product is added!',
+          error: 'Promise rejected 🤯'
+        }
+      )
+      return {
+        ...state
+      }
+    }
+    case "GET_TOAST": {
+      const resolveAfter3Sec = new Promise(resolve => setTimeout(resolve, 1000));
+      toast.promise(
+        resolveAfter3Sec,
+        {
+          pending: 'Promise is pending',
+          success: 'Product is removed!',
+          error: 'Promise rejected'
+        }
+      )
+      return {
+        ...state
+      }
+    }
   }
 }
 
@@ -88,6 +118,9 @@ const GadjetsContextProvider = ({ children }) => {
   const onAddGadget = (id) => dispatch({ type: "ADD_GADGET", payload: id })
   const onGetGadget = (id) => dispatch({ type: "GET_GADGET", payload: id })
   const onDeleteGadget = (id) => dispatch({ type: "DELETE_GADGET", payload: id })
+  const toastify = () => dispatch({ type: "ADD_TOAST" })
+  const toastifyGet = () => dispatch({ type: "GET_TOAST" })
+
 
   const contextData = {
     ...gadgets,
@@ -96,6 +129,8 @@ const GadjetsContextProvider = ({ children }) => {
     onAddGadget,
     onGetGadget,
     onDeleteGadget,
+    toastify,
+    toastifyGet,
   };
 
   return (

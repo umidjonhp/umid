@@ -5,9 +5,18 @@ import GadjetsContext from "../../../context/gadjets-context";
 
 function OrderGadget({ gadget }) {
     const ctx = useContext(GadjetsContext);
-    const addGadjet = (id) => ctx.onAddGadget(id);
-    const GetGadjet = (id) => ctx.onGetGadget(id);
-    const deleteGadjet = (id) => ctx.onDeleteGadget(id);
+    const addGadjet = (id) => {
+        ctx.onAddGadget(id);
+        ctx.toastify();
+    }
+    const GetGadjet = (id) => {
+        ctx.onGetGadget(id);
+        ctx.toastifyGet();
+    }
+    const deleteGadjet = (id) => {
+        ctx.onDeleteGadget(id);
+        ctx.toastifyGet();
+    }
     return (
         <div className={styles.gadgetCard}>
             <div className={styles.box}>

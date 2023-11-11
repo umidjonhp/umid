@@ -6,7 +6,10 @@ import GadjetsContext from "../../../context/gadjets-context";
 
 function Product({ gadget }) {
   const ctx = useContext(GadjetsContext);
-  const onAddButtonHandler = () => ctx.onAddGadgets(gadget);
+  const onAddButtonHandler = () => {
+    ctx.onAddGadgets(gadget);
+    ctx.toastify()
+  }
 
   return (
     <div className={styles.card}>
